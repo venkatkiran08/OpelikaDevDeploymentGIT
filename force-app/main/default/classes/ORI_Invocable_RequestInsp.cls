@@ -3,7 +3,7 @@ public class ORI_Invocable_RequestInsp{
     @InvocableMethod(label='Create Visit Records' description='Return visit inspection records')
     public static List<visitOutputWrapper> createInspection(List<DataWrapper> dataList) { // 
         //throw new MyException('First exception'); 
-        
+        System.debug('Test');
         List<IAListWrapper> deserialIARecords = new List<IAListWrapper>();
         List<Visit> visitList = new List<Visit>();
         List<visitOutputWrapper> visitOutputWrapperList = new List<visitOutputWrapper>();
