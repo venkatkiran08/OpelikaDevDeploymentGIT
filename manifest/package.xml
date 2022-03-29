@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>ORI_Invocable_RequestInsp</members>
+        <members>ORI_Invocable_RequestInspTest</members>
+        <members>ORI_ReqInsp_Action</members>
+        <members>ORI_ReqInsp_ActionTest</members>
+        <members>ORI_VisitTriggerHandler</members>
+        <members>ORI_VisitTriggerHandlerTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>ORI_VisitTrigger</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>ORI_Request_Reinspection</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>ORR_App_Menu</members>
+        <members>ORI_Request_Inspection</members>
+        <members>ORR_Home_Navigation</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+    <types>
+        <members>Inspection_Type</members>
+        <name>CustomField</name>
+    </types>
+    <version>54.0</version>
+</Package>

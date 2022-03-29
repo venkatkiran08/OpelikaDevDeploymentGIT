@@ -1,0 +1,185 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global"  >
+    <aura:attribute name="pageReference" type="Object"/>
+    <aura:attribute name="isOpen" type="Boolean" default="false" access="private"/>
+    <lightning:navigation aura:id="navService"/>
+    <aura:if isTrue="{!v.isOpen}">    
+        <div style="height: 640px;">
+            <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    
+                    <header class="slds-modal__header slds-modal__header_empty">
+                        <lightning:buttonIcon iconName="utility:close" class="slds-modal__close slds-button_icon-inverse extendedButtonColor slds-icon_large" onclick="{!c.closeModalOnDeleteFinish}"/>
+                    </header>
+					
+                    <div class="slds-modal__content slds-p-around_medium">
+                        <lightning:flow aura:id="flowId"  onstatuschange="{!c.closeModalOnFinish}" />
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+    </aura:if>
+    
+    
+    
+       
+        <div class="slds-form-element__control" style="padding-left: 20px;">
+            <div class="slds-visual-picker slds-visual-picker_medium">
+                
+               <label for="visual-picker-75">
+                   
+                   <span onclick='{!c.handleNewClick}'  class="slds-visual-picker__figure slds-visual-picker__icon slds-align_absolute-center">
+                        <span class="slds-is-selected">
+                            <span class="slds-icon_container">
+                               <!-- <lightning:icon iconName="action:check" alternativeText="Check1" />-->
+                            </span>
+                        </span>
+                        <span class="slds-is-not-selected">
+                            <span class="slds-icon_container">
+                                <lightning:icon iconName="utility:edit_form" size="large" alternativeText="createservicerequest" />
+                            </span>
+                        </span>
+                    </span>
+                    <span class="slds-visual-picker__body">
+                        <!--
+                        <div class="slds-text-title" onclick="{!c.handleClick}">Start a new registrations</div>
+                    	-->
+                        <div class="slds-text-title">
+                        <lightning:button label="Start a New Registration" onclick="{!c.handleNewClick}"/>
+						</div>
+					</span>
+                </label>
+            </div>
+         
+            
+            
+            
+            
+            
+            <div class="slds-visual-picker slds-visual-picker_medium">
+                
+               <label for="visual-picker-75">
+                   
+                   <span onclick='{!c.handlePayClick}'  class="slds-visual-picker__figure slds-visual-picker__icon slds-align_absolute-center">
+                        <span class="slds-is-selected">
+                            <span class="slds-icon_container">
+                               <!-- <lightning:icon iconName="action:check" alternativeText="Check1" />-->
+                            </span>
+                        </span>
+                        <span class="slds-is-not-selected">
+                            <span class="slds-icon_container">
+                                <lightning:icon iconName="utility:payment_gateway" size="large" alternativeText="createservicerequest" />
+                            </span>
+                        </span>
+                    </span>
+                    <span class="slds-visual-picker__body">
+                        <!--
+                        <div class="slds-text-title" onclick="{!c.handlePayClick}">Pay Now</div>	
+						-->	
+						<div class="slds-text-title">
+                        <lightning:button label="Pay for registration(s)" onclick="{!c.handlePayClick}"/>
+						</div>
+                    </span>
+                </label>
+            </div>
+            
+            
+            <div class="slds-visual-picker slds-visual-picker_medium">
+                
+               <label for="visual-picker-75">
+                   
+                   <span onclick='{!c.handleOwnershipClick}'  class="slds-visual-picker__figure slds-visual-picker__icon slds-align_absolute-center">
+                        <span class="slds-is-selected">
+                            <span class="slds-icon_container">
+                               <!-- <lightning:icon iconName="action:check" alternativeText="Check1" />-->
+                            </span>
+                        </span>
+                        <span class="slds-is-not-selected">
+                            <span class="slds-icon_container">
+                                <lightning:icon iconName="utility:change_record_type" size="large" alternativeText="createownerchangerequest" />
+                            </span>
+                        </span>
+                    </span>
+                    <span class="slds-visual-picker__body">
+                        <div class="slds-text-title">
+                        <lightning:button label="Ownership Change" onclick="{!c.handleOwnershipClick}"/>
+						</div>
+					</span>
+                </label>
+            </div>
+
+            <div class="slds-visual-picker slds-visual-picker_medium">
+                
+               <label for="visual-picker-75">
+                   
+                   <span onclick='{!c.handleRenewal}'  class="slds-visual-picker__figure slds-visual-picker__icon slds-align_absolute-center">
+                        <span class="slds-is-selected">
+                            <span class="slds-icon_container">
+                               <!-- <lightning:icon iconName="action:check" alternativeText="Check1" />-->
+                            </span>
+                        </span>
+                        <span class="slds-is-not-selected">
+                            <span class="slds-icon_container">
+                                <lightning:icon iconName="utility:payment_gateway" size="large" alternativeText="createservicerequest" />
+                            </span>
+                        </span>
+                    </span>
+                    <span class="slds-visual-picker__body">
+						<div class="slds-text-title">
+                        <lightning:button label="Renew registration(s)" onclick="{!c.handleRenewal}"/>
+						</div>
+                    </span>
+                </label>
+            </div> 
+
+            <div class="slds-visual-picker slds-visual-picker_medium">
+                
+               <label for="visual-picker-75">
+                   
+                   <span onclick='{!c.handleRequestInspection}'  class="slds-visual-picker__figure slds-visual-picker__icon slds-align_absolute-center">
+                        <span class="slds-is-selected">
+                            <span class="slds-icon_container">
+                               <!-- <lightning:icon iconName="action:check" alternativeText="Check1" />-->
+                            </span>
+                        </span>
+                        <span class="slds-is-not-selected">
+                            <span class="slds-icon_container">
+                                <lightning:icon iconName="utility:task" size="large" alternativeText="requestinspection" />
+                            </span>
+                        </span>
+                    </span>
+                    <span class="slds-visual-picker__body">
+						<div class="slds-text-title">
+                        <lightning:button label="Request an Inspection" onclick="{!c.handleRequestInspection}"/>
+						</div>
+                    </span>
+                </label>
+            </div> 
+            
+            <div class="slds-visual-picker slds-visual-picker_medium">
+                
+               <label for="visual-picker-75">
+                   
+                   <span onclick='{!c.handleRequestInspection}'  class="slds-visual-picker__figure slds-visual-picker__icon slds-align_absolute-center">
+                        <span class="slds-is-selected">
+                            <span class="slds-icon_container">
+                               <!-- <lightning:icon iconName="action:check" alternativeText="Check1" />-->
+                            </span>
+                        </span>
+                        <span class="slds-is-not-selected">
+                            <span class="slds-icon_container">
+                                <lightning:icon iconName="utility:task" size="large" alternativeText="requestReinspection" />
+                            </span>
+                        </span>
+                    </span>
+                    <span class="slds-visual-picker__body">
+						<div class="slds-text-title">
+                        <lightning:button label="Request Re-Inspection" onclick="{!c.handleRequestReInspection}"/>
+						</div>
+                    </span>
+                </label>
+            </div> 
+            
+            
+        </div>
+</aura:component>

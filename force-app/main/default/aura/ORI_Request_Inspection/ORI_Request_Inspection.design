@@ -1,0 +1,9 @@
+<design:component >
+    <design:attribute name="passToFlowData" label="IA Application Wrapper List"
+        description="Pass IA Wrapper List for Inspection" />
+    <design:attribute name="ComplaintInspectionChoice" label="Complaint Based Inspection"
+        description="Pass complaint based inspection selection" />
+    <design:attribute name="ReInspectionChoice" label="Re Inspection Flag"
+        description="Check re inspection Flow" />
+    <design:attribute name="chargeAmount" label="Final Charge Amount" description="Charge Amount" />
+</design:component>

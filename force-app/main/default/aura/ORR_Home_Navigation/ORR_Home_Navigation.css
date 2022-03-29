@@ -1,0 +1,39 @@
+.THIS {
+}
+
+.THIS .buttonCls {
+    background-color: black;
+    color: white;
+    width: 93%;
+    height: 60%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    font-size: 20px;
+}
+
+.THIS .buttonCls:hover {
+    background-color: black;
+    color: white;
+    width: 93%;
+    height: 60%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-decoration: underline;
+}
+
+.THIS .cursorPointer {
+    cursor: pointer;
+}
+
+.THIS .cursorPointer:hover {
+    cursor: pointer;
+}
+
+.THIS .extendedWidth {
+    width: 85% !important;
+    max-width: 75rem !important;
+}
+.THIS .extendedButtonColor {
+    color: white !important;
+    
+}

@@ -1,0 +1,16 @@
+.THIS lightning-primitive-header-actions {
+    display: none;
+}
+
+.THIS .slds-th__action  {
+    background: #000000;
+}
+
+.THIS .slds-th__action.slds-th__action_form.slds-cell-fixed {
+    background: #000000;
+}
+
+.THIS .slds-table thead th{
+    background: #000000;
+    color: white;
+}

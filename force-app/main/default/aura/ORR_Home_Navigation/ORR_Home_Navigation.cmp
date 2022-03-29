@@ -1,0 +1,108 @@
+<!--
+  @description       : 
+  @author            : Srujan Gurudu
+  @group             : 
+  @last modified on  : 2021-12-28
+  @last modified by  : Srujan Gurudu
+-->
+<aura:component
+    implements="lightning:isUrlAddressable,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes">
+
+    <lightning:navigation aura:id="navService"/>
+    <aura:attribute name="isOpen" type="Boolean" default="false" access="private"/>
+
+    <div class="slds-grid slds-wrap slds-gutters slds-m-top_x-large slds-align_absolute-center">
+        
+        <div class="slds-size_2-of-12 cursorPointer" onclick="{!c.handleNewRegistration}"> 
+            <div class="slds-grid slds-grid_vertical">
+                <div class="slds-col">
+                    <lightning:button class="buttonCls slds-text-align_center" label="Start a new registration"
+                        title="Start a new registration" />
+                </div>
+                <div class="slds-col  slds-text-align_center slds-m-top_x-large">
+                    <img src="{!$Resource.enrollment}" style="width: 50px;"/>
+                </div>
+            </div>
+        </div>
+        <div class="slds-size_2-of-12 cursorPointer" onclick="{!c.payForRegistration}">
+           
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                        <lightning:button class="buttonCls slds-text-align_center" label="Pay for registration(s)"
+                title="Pay" />
+                    </div>
+                    <div class="slds-col slds-text-align_center slds-p-top_large">
+                        <img src="{!$Resource.Payment_Icon}" style="width: 40px;"/>
+                    </div>
+                </div>
+        </div>
+        <div class="slds-size_2-of-12 cursorPointer" onclick="{!c.handleOwnershipChange}">
+          
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                        <lightning:button class="buttonCls slds-text-align_center" label="Ownership change" title="Ownership change"/>
+                    </div>
+                    <div class="slds-col  slds-text-align_center slds-m-top_x-large">
+                        <img src="{!$Resource.enrollment}" style="width: 50px;"/>
+                    </div>
+                </div>
+        </div>
+        
+        <div class="slds-size_2-of-12 cursorPointer" onclick="{!c.handleRenewal}">
+          
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                        <lightning:button class="buttonCls slds-text-align_center" label="Renew existing registration(s)" title="Renew Registration(s)"/>
+                    </div>
+                    <div class="slds-col  slds-text-align_center slds-m-top_x-large">
+                        <img src="{!$Resource.renew}" style="width: 50px"/>
+                    </div>
+                </div>
+        </div>
+        
+        
+        <div class="slds-size_2-of-12 cursorPointer" onclick="{!c.handleRequestInspection}">
+          
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                        <lightning:button class="buttonCls slds-text-align_center" label="Request an Inspection" title="Request an Inspection"/>
+                    </div>
+                    <div class="slds-col  slds-text-align_center slds-m-top_x-large">
+                        <img src="{!$Resource.Inspection_icon}" style="width: 50px;height:50px"/>
+                    </div>
+                </div>
+        </div>
+
+       <div class="slds-size_2-of-12 cursorPointer" onclick="{!c.handleRequestReInspection}">
+          
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                        <lightning:button class="buttonCls slds-text-align_center" label="Request ReInspection" title="Request ReInspection"/>
+                    </div>
+                    <div class="slds-col  slds-text-align_center slds-m-top_x-large">
+                        <img src="{!$Resource.Inspection_icon}" style="width: 50px;height:50px"/>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+
+    <aura:if isTrue="{!v.isOpen}">    
+       
+            <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container extendedWidth" >
+                    <header class="slds-modal__header slds-modal__header_empty">
+                        <lightning:buttonIcon iconName="utility:close" class="slds-modal__close slds-button_icon-inverse extendedButtonColor" onclick="{!c.closeModalOnFinish}"/>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium">
+                        <lightning:flow aura:id="flowId"  onstatuschange="{!c.closeModalOnFlow}" />
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+       
+    </aura:if>
+
+
+
+</aura:component>
